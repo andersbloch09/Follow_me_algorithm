@@ -169,20 +169,6 @@ class Point_Sub(Node): #Subscriber that extracts global position data of the TB3
         self.x = msg.pose.pose.position.x
         self.y = msg.pose.pose.position.y
 
-class LIDAR_Sub(Node): #Subscriber that extracts lidar range data
-    def __init__(self):
-        super().__init__('LIDAR_Sub')  #This name i call the same as the node name
-        self.subscription = self.create_subscription(
-            LaserScan,
-            'scan',
-            self.listener_callback,
-            QoSProfile(depth=1, reliability=ReliabilityPolicy.BEST_EFFORT))#First the msg type, topic, callback_function, and lastly our QoS(quality of service i think)
-        self.subscription  # prevent unused variable warning
-        
-    def listener_callback(self, msg: LaserScan):#We have our message AKA data 
-        self.dist = msg.ranges
-        
-
 def main():
     # Initialize rclpy and create the twist data-class publisher
     rclpy.init()
