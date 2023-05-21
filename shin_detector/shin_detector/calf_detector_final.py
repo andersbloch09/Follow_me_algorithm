@@ -72,17 +72,6 @@ class WaypointPublisher(Node):
         self.get_logger().info(f"Publishing: ({msg.data})")
 
 #-----------FUNCTIONS---------------
-def genCluster(subscriber):
-    rclpy.spin_once(subscriber)
-    points = np.asarray(subscriber.dist)
-    for i in range(len(points)):
-        vectorArrX[i]=np.cos(np.deg2rad(i))*points[i]
-        vectorArrY[i]=np.sin(np.deg2rad(i))*points[i]
-    
-    coord = tuple(zip(vectorArrX,vectorArrY))
-    global db
-    db = DBSCAN(eps=0.05, min_samples=5,).fit(coord)
-
 def getFeatures(clust_x, clust_y, clustersize):
 
             x_mean = sum(clust_x)/clustersize
