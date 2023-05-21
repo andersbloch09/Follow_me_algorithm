@@ -135,7 +135,7 @@ def getFeatures(clust_x, clust_y, clustersize):
                 B[i,0]=math.pow(clust_x[i], 2)-math.pow(clust_y[i], 2)
 
             sol = np.zeros((3,1),np.float64)
-            #cv2.solve(A, B, sol, cv2.DECOMP_SVD)
+           
 
             xc = sol[0,0]
             yc = sol[1,0]
@@ -158,7 +158,6 @@ def main(args=None):
     vectorArrX = np.zeros(359)
     vectorArrY = np.zeros(359)
     #Generate the first clustered data, for reference in the loop.
-    #genCluster(lidar_subscriber)
 
     while(1):
         rclpy.spin_once(lidar_subscriber)
