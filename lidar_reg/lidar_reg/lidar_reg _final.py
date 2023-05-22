@@ -36,8 +36,8 @@ message = """The robot will drive now"""
 error = """AN ERROR HAS ACCURED"""
 
 # Deque size limit
-queueLimit = 4
-goalDist = 0.25
+queueLimit = 10
+goalDist = 0.1
 
 #--------------FUNCTIONS------------------
 def make_simple_profile(output, input, step):
