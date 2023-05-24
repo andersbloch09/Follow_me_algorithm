@@ -36,7 +36,7 @@ message = """The robot will drive now"""
 error = """AN ERROR HAS ACCURED"""
 
 # Deque size limit
-queueLimit = 10
+queueLimit = 3
 goalDist = 0.1
 
 #--------------FUNCTIONS------------------
